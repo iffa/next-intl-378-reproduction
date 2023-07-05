@@ -1,6 +1,11 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import "@/styles/globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <NextIntlClientProvider locale="en" messages={{ foo: "bar" }}>
+      <Component {...pageProps} />
+    </NextIntlClientProvider>
+  );
 }
